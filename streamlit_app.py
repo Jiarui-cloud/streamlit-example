@@ -17,7 +17,7 @@ In the meantime, below is an example of what you can do with just a few lines of
 
 
 df = pd.DataFrame(
-...    np.random.randn(50, 20),
-...    columns=('col %d' % i for i in range(20)))
+  np.random.randn(50, 20),
+  columns=('col %d' % i for i in range(20)))
 st.dataframe(df) 
 
