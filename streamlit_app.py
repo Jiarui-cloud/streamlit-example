@@ -16,8 +16,8 @@ In the meantime, below is an example of what you can do with just a few lines of
 """
 
 
-x = st.slider('set a value')
-st.write(x,'The square of x is',x*x)
+df = pd.DataFrame(
+...    np.random.randn(50, 20),
+...    columns=('col %d' % i for i in range(20)))
+st.dataframe(df) 
 
-title = st.text_input('Movie title', 'Life of Brian')
-st.write('The current movie title is', title)
