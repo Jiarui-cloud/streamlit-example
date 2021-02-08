@@ -16,12 +16,23 @@ forums](https://discuss.streamlit.io).
 In the meantime, below is an example of what you can do with just a few lines of code:
 """
 
+# Randomly fill a dataframe and cache it
+@st.cache(allow_output_mutation=True)
+def get_dataframe():
+    return pd.DataFrame(
+        np.random.randn(50, 20),
+        columns=('col %d' % i for i in range(20)))
 
-np.random.seed(24)
-df = pd.DataFrame({'A': np.linspace(1, 10, 10)})
-df = pd.concat([df, pd.DataFrame(np.random.randn(10, 4), columns=list('BCDE'))],
-               axis=1)
-a = st.number_input('',12)
-df.iloc[3, 3] = a
-st.dataframe(df) 
 
+df = get_dataframe()
+
+# Create row, column, and value inputs
+row = st.number_input('row', max_value=df.shape[0])
+col = st.number_input('column', max_value=df.shape[1])
+value = st.number_input('value')
+
+# Change the entry at (row, col) to the given value
+df.values[row][col] = value
+
+# And display the result!
+st.dataframe(df)
