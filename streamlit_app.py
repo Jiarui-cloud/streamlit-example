@@ -16,5 +16,5 @@ In the meantime, below is an example of what you can do with just a few lines of
 """
 
 
-x = st.slide('set a value')
+x = st.slider('set a value')
 st.write(x,'The square of x is',x*x)
