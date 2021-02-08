@@ -19,8 +19,5 @@ In the meantime, below is an example of what you can do with just a few lines of
 x = st.slider('set a value')
 st.write(x,'The square of x is',x*x)
 
-df = pd.DataFrame({'col1': [1,2,3]})
-df  # <-- Draw the dataframe
-
-x = 10
-'x', x
+title = st.text_input('Movie title', 'Life of Brian')
+st.write('The current movie title is', title)
