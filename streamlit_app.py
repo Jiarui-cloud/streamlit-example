@@ -27,8 +27,8 @@ def get_dataframe():
 df = get_dataframe()
 
 # Create row, column, and value inputs
-row = st.number_input('row', max_value=df.shape[0])
-col = st.number_input('column', max_value=df.shape[1])
+row = st.number_input('row', min_value=0, max_value=df.shape[0])
+col = st.number_input('column', min_value=0, max_value=df.shape[1])
 value = st.number_input('value')
 
 # Change the entry at (row, col) to the given value
