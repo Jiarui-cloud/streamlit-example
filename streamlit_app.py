@@ -17,8 +17,10 @@ In the meantime, below is an example of what you can do with just a few lines of
 """
 
 
-df = pd.DataFrame(
-  np.random.randn(50, 20),
-  columns=('col %d' % i for i in range(20)))
+np.random.seed(24)
+df = pd.DataFrame({'A': np.linspace(1, 10, 10)})
+df = pd.concat([df, pd.DataFrame(np.random.randn(10, 4), columns=list('BCDE'))],
+               axis=1)
+df.iloc[3, 3] = st.data_input('',12)
 st.dataframe(df) 
 
